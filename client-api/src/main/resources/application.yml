@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8082
 
 spring:
   cloud:
@@ -11,3 +11,15 @@ spring:
   redis:
     host: localhost
     port: 6379
+
+management:
+  endpoint:
+    refresh:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+my:
+  value: "test refresh"

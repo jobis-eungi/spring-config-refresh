@@ -32,6 +32,7 @@ subprojects {
     dependencies {
         compileOnly("org.projectlombok:lombok")
         annotationProcessor("org.projectlombok:lombok")
+        implementation("org.springframework.boot:spring-boot-starter-actuator")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
     }
 

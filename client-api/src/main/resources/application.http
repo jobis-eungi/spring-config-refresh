@@ -1,3 +1,5 @@
 ### ping
 GET http://localhost:8080/api/refresh/ping
 
+### publish
+POST http://localhost:8080/api/refresh/publish/test

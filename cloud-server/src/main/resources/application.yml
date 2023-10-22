@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: client-api
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///Users/eungi/IdeaProjects/spring-config-redis/cloud-server/src/main/resources/config
+      profile: native
+  config:
+    activate:
+      on-profile: native, dev, test
+
