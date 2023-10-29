@@ -35,8 +35,8 @@ public class RedisConfigMessageListener implements MessageListener {
 
     Set<String> result = refreshWithContextRefresher();
     log.info("================================================ after refresh =================================");
-    log.info("result = {}", String.join(",", result));
-    log.info("refreshValue by @ConfigurationOnProperties {}", testValueProperties.getMy());
+    log.info("[Refreshed] = {}", String.join(",", result));
+    log.info(testValueProperties.getMy().getValue());
     log.info("================================================ after refresh =================================");
 
     for (String defaultProfile : environment.getDefaultProfiles()) {
