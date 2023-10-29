@@ -8,6 +8,7 @@ spring:
   cloud:
     config:
       enabled: true
+
   config:
     import: configserver:http://localhost:8081
 
@@ -28,4 +29,13 @@ logging:
   level:
     org:
       springframework:
-        cloud: trace
+        cloud: info
+
+application:
+  config:
+    refresh:
+      auto:
+        v2:
+          enabled: false
+        v3:
+          enabled: true
