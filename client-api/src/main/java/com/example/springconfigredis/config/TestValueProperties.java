@@ -17,6 +17,7 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 public class TestValueProperties {
 
+  // get my.value from config properties
   private ValueProperties my;
 
   @PostConstruct
@@ -25,7 +26,6 @@ public class TestValueProperties {
     log.info(my.toString());
     log.info("-------------------------------- my properties value --------------------------------");
   }
-
 
   @Getter
   @Setter

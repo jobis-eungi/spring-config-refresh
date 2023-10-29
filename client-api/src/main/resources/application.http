@@ -1,5 +1,6 @@
 ### ping
 GET http://localhost:8080/api/refresh/ping
 
-### publish
+
+### publish refresh event to redis
 POST http://localhost:8080/api/refresh/publish/test
