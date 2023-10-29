@@ -9,8 +9,8 @@ spring:
       server:
         native:
           search-locations: file:///Users/eungi/IdeaProjects/spring-config-redis/cloud-server/src/main/resources/config
-      profile: native
-  config:
-    activate:
-      on-profile: native, dev, test
+        bootstrap: true
 
+logging:
+  level:
+    root: debug

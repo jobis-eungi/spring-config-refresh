@@ -1,0 +1,6 @@
+test:
+  hello: "default profile test.hello value"
+
+ㄱ
+my:
+  value: "modified default profile my.value"
