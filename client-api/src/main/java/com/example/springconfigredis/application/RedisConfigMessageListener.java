@@ -2,9 +2,7 @@ package com.example.springconfigredis.application;
 
 import com.example.springconfigredis.config.TestValueProperties;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 import org.springframework.data.redis.connection.Message;
@@ -24,7 +22,8 @@ public class RedisConfigMessageListener implements MessageListener {
   @Value("${my.value}")
   private String myValue;
 
-  public RedisConfigMessageListener(Environment environment, @Qualifier("localRestTemplate") RestTemplate restTemplate, TestValueProperties testValueProperties) {
+  public RedisConfigMessageListener(Environment environment, RestTemplate restTemplate,
+      TestValueProperties testValueProperties) {
     this.environment = environment;
     this.restTemplate = restTemplate;
     this.testValueProperties = testValueProperties;
@@ -40,7 +39,7 @@ public class RedisConfigMessageListener implements MessageListener {
   public void onMessage(Message message, byte[] pattern) {
     log.info("onMessage {}", message);
 
-    String result = restTemplate.postForObject("/actuator/refresh", null, String.class);
+    String result = refreshV1WithActuatorEndPoint();
     log.info("================================================ after refresh =================================");
     log.info("result = {}", result);
     log.info("refreshValue by @ConfigurationOnProperties {}", testValueProperties.getMy());
@@ -51,4 +50,9 @@ public class RedisConfigMessageListener implements MessageListener {
       log.info("defaultProfile: { } ", defaultProfile);
     }
   }
+
+  private String refreshV1WithActuatorEndPoint() {
+    return restTemplate.postForObject("/actuator/refresh", null, String.class);
+  }
+
 }

@@ -30,7 +30,6 @@ public class TestValueProperties {
   @Getter
   @Setter
   @ToString
-  @RefreshScope
   public static class ValueProperties{
     private String value;
   }
