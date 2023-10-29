@@ -38,4 +38,4 @@ application:
         v2:
           enabled: false
         v3:
-          enabled: true
+          enabled: false
